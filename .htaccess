@@ -1,0 +1,20 @@
+# Blokir akses langsung lewat browser ke file-file sensitif.
+# WAJIB ada ini kalau hosting pakai Apache -- tanpa ini, orang bisa buka
+# https://domainanda.com/.env di browser dan lihat semua kredensial!
+
+<FilesMatch "^(\.env|.*\.sql|.*\.md|composer\.(json|lock))$">
+    Require all denied
+</FilesMatch>
+
+# Cegah listing isi folder kalau tidak ada index
+Options -Indexes
+
+# Blokir akses langsung ke folder storage/ (file penanda internal, bukan
+# untuk diakses publik -- dipakai oleh pengecekan otomatis "estimasi
+# diperpanjang / terlambat" tanpa cron di includes/config.php)
+<IfModule mod_alias.c>
+    RedirectMatch 403 ^/storage/
+</IfModule>
+
+# Sembunyikan versi Apache/PHP dari header response (kurangi info buat penyerang)
+ServerSignature Off
