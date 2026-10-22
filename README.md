@@ -45,7 +45,3 @@ git clone https://github.com/zulkifli0706/azka-laundry.git
 ## Proyek terkait
 
 Data dummy dari aplikasi ini dianalisis dengan Python di repositori [azka-laundry-data-analysis](https://github.com/zulkifli0706/azka-laundry-data-analysis).
-
-## Catatan
-
-Seluruh data di aplikasi ini adalah data dummy untuk latihan dan portofolio.
